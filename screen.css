@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+@keyframes cursor-blink {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes cursor-blink {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.screen-line {
+  background: transparent;
+  color: inherit;
+  font-family: monospace;
+}
+
+.input-line {
+  caret-color: transparent;
+}
+
+.input-line:focus {
+  outline: none;
+}
+
+.user-input-line::before {
+  content: "> ";
+}
+
+.input-line:focus::after {
+  content: "";
+  width: 0.5em;
+  height: 1em;
+  display: inline-block;
+  background-color: currentColor;
+  animation: cursor-blink steps(2) 0.8s infinite;
+}
